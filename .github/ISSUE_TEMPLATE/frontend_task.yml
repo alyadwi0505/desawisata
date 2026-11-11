@@ -1,0 +1,79 @@
+name: "🎨 Frontend Task"
+description: "Template tiket implementasi UI/UX, komponen, halaman, atau integrasi API frontend"
+title: "[FE]: "
+labels: ["frontend", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 💻 DesaWisata Digital - Frontend Task Ticket
+        Gunakan tiket ini untuk pengerjaan UI, styling, komponen React/Next/Vue, dan integrasi API.
+
+  - type: dropdown
+    id: role_view
+    attributes:
+      label: Target Pengguna / Alur Pengguna
+      description: Pilih peran pengguna yang mengakses tampilan ini
+      options:
+        - "Wisatawan (Katalog, Detail, Permintaan Reservasi, UMKM)"
+        - "Pengelola / Admin (Panel CRUD Destinasi, Verifikasi Reservasi)"
+        - "Pelaku UMKM (Halaman Profil Usaha & Katalog Produk)"
+        - "Global / Shared (Navbar, Footer, Layout, Toast/Modal)"
+    validations:
+      required: true
+
+  - type: input
+    id: figma_link
+    attributes:
+      label: Link / Referensi Figma UI
+      description: Tautan frame figma atau deskripsi rancangan visual UI/UX
+      placeholder: "https://www.figma.com/design/... atau 'Frame: Detail Destinasi - Desktop & Mobile'"
+
+  - type: textarea
+    id: user_story
+    attributes:
+      label: Deskripsi Fitur / User Story
+      description: Apa yang ingin dilihat atau dilakukan oleh pengguna pada tampilan ini
+      placeholder: "Sebagai wisatawan, saya ingin memfilter katalog destinasi berdasarkan kategori dan harga agar saya dapat menemukan destinasi yang sesuai anggaran."
+    validations:
+      required: true
+
+  - type: textarea
+    id: component_breakdown
+    attributes:
+      label: Komponen yang Dibuat / Diubah
+      description: Rincian komponen UI (misal: CardDestinasi, FilterDrawer, DatePicker, CapacityBadge)
+      placeholder: "- Component: DestinationCard.tsx\n- Component: FilterBar.tsx\n- Page: /destinations/index.tsx"
+
+  - type: textarea
+    id: api_integration
+    attributes:
+      label: Integrasi API Backend Terkait
+      description: Endpoint backend yang dikonsumsi oleh komponen ini (atau mock data jika BE belum siap)
+      placeholder: "- GET /api/v1/destinations?category=alam&minPrice=10000\n- Status loading, error state, dan empty state harus ditangani"
+
+  - type: checkboxes
+    id: responsive_breakdown
+    attributes:
+      label: Persyaratan Responsivitas Layout
+      options:
+        - label: Mobile view (360px - 480px) rapi tanpa horizontal scroll
+          required: true
+        - label: Tablet view (768px - 1024px) tata letak grid proporsional
+          required: true
+        - label: Desktop view (> 1200px) komponen tersusun sesuai desain Figma
+          required: true
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria (Kriteria Keberhasilan)
+      options:
+        - label: Tampilan UI sesuai dengan desain Figma dan responsive
+          required: true
+        - label: State loading, error, dan success berhasil ditampilkan
+          required: true
+        - label: Validasi form berjalan sebelum data dikirim ke backend
+          required: true
+        - label: Tidak ada console error atau build failure
+          required: true

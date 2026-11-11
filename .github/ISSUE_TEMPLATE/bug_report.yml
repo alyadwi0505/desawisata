@@ -1,0 +1,50 @@
+name: "🐛 Bug Report"
+description: "Laporkan bug atau ketidaksesuaian fungsi pada backend atau frontend"
+title: "[BUG]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### ⚠️ Laporkan Bug
+        Bantu kami memahami dan mereproduksi kendala yang terjadi.
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Area Bug
+      description: Di mana bug ini ditemukan?
+      options:
+        - "Frontend (UI / Layout / State)"
+        - "Backend (API / Database / Logic)"
+        - "Integrasi (FE - BE Contract Mismatch)"
+        - "Environment / Deployment"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Deskripsi Kendala
+      description: Jelaskan apa yang terjadi dan apa yang seharusnya terjadi.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Langkah Reproduksi
+      description: Langkah-langkah untuk memicu bug
+      placeholder: |
+        1. Buka halaman '/destinasi/1'
+        2. Klik tombol 'Reservasi Sekarang'
+        3. Masukkan kuota 5 orang pada tanggal penuh
+        4. Lihat pesan error tidak muncul dan tombol stuck loading
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs_or_screenshots
+    attributes:
+      label: Tangkapan Layar / Log Error
+      description: Screenshot layar, response payload, atau terminal error log

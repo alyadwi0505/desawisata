@@ -1,0 +1,84 @@
+name: "🛠️ Backend Task"
+description: "Template tiket implementasi fitur, API endpoint, database schema, atau logic backend"
+title: "[BE]: "
+labels: ["backend", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 📋 DesaWisata Digital - Backend Task Ticket
+        Gunakan tiket ini untuk pengerjaan tugas backend (API, Database, Logic & Validasi).
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Domain / Entitas
+      description: Pilih domain entitas yang relevan dengan tiket ini
+      options:
+        - "Destination (Destinasi Wisata)"
+        - "Activity (Aktivitas Destinasi)"
+        - "TourPackage (Paket Wisata)"
+        - "Availability (Ketersediaan & Kuota)"
+        - "ReservationRequest (Permintaan Reservasi)"
+        - "MSME / Product (Profil & Produk UMKM)"
+        - "Review (Ulasan & Rating)"
+        - "Auth / Core / Infrastructure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_story
+    attributes:
+      label: Deskripsi Tugas / User Story
+      description: Jelaskan latar belakang dan tujuan endpoint/logic ini dibuat
+      placeholder: "Sebagai pengelola desa wisata, saya membutuhkan endpoint untuk memverifikasi dan mengubah status permintaan reservasi agar kapasitas harian terpantau."
+    validations:
+      required: true
+
+  - type: textarea
+    id: api_spec
+    attributes:
+      label: Spesifikasi API Endpoint
+      description: HTTP Method, URL Path, Query Params, Request Body, dan Response
+      value: |
+        - **Method**: `GET / POST / PUT / PATCH / DELETE`
+        - **Path**: `/api/v1/...`
+        - **Request Payload**:
+          ```json
+          {}
+          ```
+        - **Success Response (200/201)**:
+          ```json
+          {}
+          ```
+        - **Error Responses**: `400 Bad Request`, `404 Not Found`, `422 Unprocessable Entity`
+    validations:
+      required: true
+
+  - type: textarea
+    id: business_logic
+    attributes:
+      label: Business Logic & Validasi
+      description: Aturan validasi (misal: validasi kuota/kapasitas harian, pengecekan tanggal reservasi)
+      placeholder: "- Cek kuota tanggal reservasi dari entitas Availability\n- Jika slot < jumlah pengunjung, kembalikan HTTP 400 dengan pesan kapasitas penuh\n- Status awal reservasi adalah PENDING"
+
+  - type: textarea
+    id: db_changes
+    attributes:
+      label: Perubahan Database / Migrations
+      description: Tabel baru, relasi (foreign key), atau kolom yang ditambahkan/diubah
+      placeholder: "- Tabel: reservation_requests (id, destination_id, user_name, user_email, date, visitors_count, status, notes)"
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria (Kriteria Keberhasilan)
+      options:
+        - label: Endpoint telah diuji dengan Postman / cURL / Unit Test
+          required: true
+        - label: Validasi input dan error handling berjalan sesuai spesifikasi
+          required: true
+        - label: Data tersimpan/terbaca dengan benar dari database
+          required: true
+        - label: Tidak ada secret/credential yang bocor ke repo
+          required: true
