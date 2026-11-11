@@ -129,6 +129,36 @@ Sebagai pengelola desa wisata, saya membutuhkan endpoint untuk melihat semua res
 - [ ] Pengurangan kuota efektif saat status menjadi CONFIRMED
 - [ ] History status tercatat"
 
+gh issue create --title "[BE-06] API Review & Rating Destinasi" \
+  --label "backend,priority:medium" \
+  --body "### Domain: Review
+**User Story:**
+Sebagai wisatawan, saya ingin memberikan ulasan dan rating bintang untuk destinasi yang telah dikunjungi.
+
+**Spesifikasi Endpoint:**
+- \`POST /api/v1/destinations/:id/reviews\`
+- \`GET /api/v1/destinations/:id/reviews\`
+
+**Acceptance Criteria:**
+- [ ] Rating berkisar 1 - 5 bintang
+- [ ] Nilai rata-rata rating destinasi otomatis terbarui
+- [ ] Validasi isi komentar ulasan"
+
+gh issue create --title "[BE-07] Seeding Initial Dummy Data Desa Wisata" \
+  --label "backend,priority:low" \
+  --body "### Domain: Database Seeder
+**User Story:**
+Sebagai developer, saya memerlukan data awal yang realistis untuk menguji katalog, paket wisata, dan profil UMKM.
+
+**Tugas:**
+- Buat seeder destinasi percontohan (Penglipuran / Nglanggeran / Sade)
+- Masukkan minimal 3 paket wisata lengkap dengan jadwal ketersediaan
+- Masukkan minimal 2 profil UMKM lokal desa
+
+**Acceptance Criteria:**
+- [ ] Perintah \`seed\` berjalan sukses
+- [ ] Data relasi terhubung valid"
+
 echo "🎨 Membuat Tiket Frontend (FE)..."
 
 gh issue create --title "[FE-01] Setup Project, Tailwind Design System & Layout Utama" \
@@ -243,3 +273,4 @@ Sebagai pengelola desa, saya ingin menambahkan atraksi wisata baru dan mengatur 
 - [ ] Perubahan kuota harian langsung tersimpan ke backend"
 
 echo "🎉 Semua Label dan 12 Tiket (BE & FE) berhasil dibuat di GitHub!"
+
